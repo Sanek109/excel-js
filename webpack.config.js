@@ -18,14 +18,13 @@ const jsLoaders = () => {
             }
         }
     ]
+
     if (isDev) {
         loaders.push('eslint-loader')
     }
+
     return loaders
 }
-
-console.log('IS PROD', isProd)
-console.log('IS DEV', isDev)
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -85,14 +84,8 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: jsLoaders(),
-                loader: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+                use: jsLoaders()
             }
-        ],
+        ]
     }
 }
